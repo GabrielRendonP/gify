@@ -1,6 +1,10 @@
 .main {
   .title {
-
+    color: var(--white);
+    padding: 1rem 3em;
+    border-radius: 30px;
+    background-color: var(--orange-l);
+    box-shadow: 10px 10px 10px rgba(128, 128, 128, 0.404);
   }
   .container {
     display: flex;
@@ -9,5 +13,27 @@
     flex: 1 0 25%;
     gap: 1rem;
     justify-content: center;
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.596);
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .avatar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
   }
 }

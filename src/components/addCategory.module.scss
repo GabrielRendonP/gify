@@ -1,0 +1,14 @@
+.main {
+  padding: 2rem;
+  label {
+    display: flex;
+    flex-direction: column;
+    input {
+      font-size: 2rem;
+      border-style: none;
+      border: solid var(--blue-l) 5px;
+      border-radius: 18px;
+      padding: 1rem;
+    }
+  }
+}

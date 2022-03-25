@@ -1,11 +1,28 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import styles from './gifItem.module.scss';
 
-function GifItem({ title, url }) {
+const variants = {
+  initial: {
+    scale: 0,
+    x: -100,
+  },
+  animate: {
+    scale: 1,
+    x: 0,
+  },
+};
+function GifItem({
+  id, title, url, onSelected,
+}) {
   return (
-    <div className={styles.main}>
+    <motion.div
+      className={styles.main}
+      variants={variants}
+      onClick={() => onSelected(id, 'hidden')}
+    >
 
       <img alt={title} src={url} />
       <h4>
@@ -13,7 +30,7 @@ function GifItem({ title, url }) {
         {title}
         {' '}
       </h4>
-    </div>
+    </motion.div>
   );
 }
 GifItem.propTypes = {};

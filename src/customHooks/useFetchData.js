@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const useFetchData = () => {
   const [state, setState] = useState([]);
+  const [ready, setReady] = useState(false);
   const fetch = async (search) => {
     const res = await axios.get('https://api.giphy.com/v1/gifs/search', {
       params: {
@@ -12,12 +13,16 @@ const useFetchData = () => {
         limit: 10,
       },
     });
-    console.log(res);
+    if (res.status === 200) {
+      setReady(true);
+    } else {
+      setReady(false);
+    }
     setState(res.data.data);
     return res;
   };
 
-  return [fetch, state];
+  return [fetch, state, ready];
 };
 
 export default useFetchData;
