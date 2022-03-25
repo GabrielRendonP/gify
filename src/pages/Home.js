@@ -1,22 +1,20 @@
+import { useState } from 'react';
 import AddCategory from '../components/AddCategory';
+import GifsContainer from '../components/GifsContainer';
 import styles from './home.module.scss';
 
 function Home() {
-  const categories = ['cat1', 'cat2', 'cat3'];
+  const [categories, setCategories] = useState([]);
 
   return (
     <div className={styles.main}>
       <div className={styles.title}>
         <h3> Gify </h3>
       </div>
-      <AddCategory />
-      <div>
-        {categories.map((cat) => (
-          <div key={cat}>
-            {' '}
-            {cat}
-            {' '}
-          </div>
+      <AddCategory setCategories={setCategories} />
+      <div className={styles.container}>
+        {categories.map((cat, idx) => (
+          <GifsContainer key={cat.concat(idx)} category={cat} />
         ))}
       </div>
     </div>
