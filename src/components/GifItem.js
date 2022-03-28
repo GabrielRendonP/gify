@@ -19,6 +19,10 @@ function GifItem({
 }) {
   return (
     <motion.div
+      whileHover={{
+        scale: [1, 1.1, 1],
+      }}
+      // transition={{ duration: 1, repeat: Infinity }}
       className={styles.main}
       variants={variants}
       onClick={() => onSelected(id, 'hidden')}
